@@ -1,0 +1,55 @@
+<template>
+  <v-app>
+    <div>
+      <v-toolbar dark color="green">
+        <v-toolbar-title>
+          <nuxt-link to="/">NodeBird</nuxt-link>
+        </v-toolbar-title>
+        <v-spacer />
+        <v-toolbar-items>
+          <v-text-field label="검색" prepend-icon="mdi-magnify" hide-details :style="{ display:'flex', alignItems: 'center' }" />
+          <v-btn text nuxt to="/profile">
+            <div>프로필</div>
+          </v-btn>
+          <v-btn text nuxt to="/signup">
+            <div>회원가입</div>
+          </v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+      <div>{{ name }}</div>
+      <v-btn @click="onChangeName">Click</v-btn>
+      <v-row>
+        <v-col cols="12" xs="12" md="4">
+          <login-form />
+        </v-col>
+        <v-col cols="12" xs="12" md="8">
+          <nuxt />
+        </v-col>
+      </v-row>    
+    </div>
+  </v-app>
+</template>
+
+<script>
+import LoginForm from '~/components/LoginForm.vue'; // ~ 루트 폴더 
+
+export default {
+  components: {
+    LoginForm,
+  },
+  computed: {
+    name() {
+      return this.$store.state.posts.name;
+    }
+  },
+  methods: {
+    onChangeName() {
+      this.$store.commit('posts/BYE')
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
