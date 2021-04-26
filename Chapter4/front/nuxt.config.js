@@ -7,11 +7,7 @@ module.exports = {
   ],
   buildModules: [
     '@nuxtjs/vuetify',
-    '@nuxtjs/moment',
   ],
-  moment: {
-    locales: ['ko'],
-  },
   build: {
     analyze: true,
   },
