@@ -49,7 +49,11 @@ export const actions = { // 복잡한 작업 + 비동기 작업 시 사용
   signUp({ commit, state }, payload) { // context 객체 : commit(mutations 실행), dispatch(actions 실행), state, getters, rootState, rootGetters ....
     // 서버에 회원 가입 요청 보내고
     // 응답에 따라 state 변경
-    // console.log(context)
+    this.$axios.post('/user', {
+      nickname: payload.nickname,
+      password : payload.password,
+      email : payload.email,
+    })
     commit('setMe', payload);
   }, 
   logIn(context, payload) {

@@ -77,6 +77,7 @@
         })
       }
     },
+    middleware: 'authenticated'
   };
 </script>
 
